@@ -36,8 +36,8 @@ namespace ProductShop
         private void btn_authorization_Click(object sender, RoutedEventArgs e)
         {
             users = new ObservableCollection<User>(bd_connection.connection.User.ToList());
-            var z = users.Where(a => a.Login == tb_login.Text && a.Password == tb_password.Password).FirstOrDefault();
-            if (z != null)
+            var usr = users.Where(a => a.Login == tb_login.Text && a.Password == tb_password.Password).FirstOrDefault();
+            if (usr != null)
             {
                 if(cb_save.IsChecked.GetValueOrDefault())
                 {
@@ -49,7 +49,7 @@ namespace ProductShop
                     Properties.Settings.Default.Login = null;
                     Properties.Settings.Default.Save();
                 }
-                NavigationService.Navigate(new ListPage());
+                NavigationService.Navigate(new ListPage(usr));
             }
             else
             {

@@ -8,7 +8,7 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListPage">
 
-    <Grid>
+    <Grid Margin="0,0,0,-19">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -26,9 +26,22 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Image Source="/img/logo.jpg" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
+        <Image Source="/img/logo.png" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
 
-        <ListView x:Name="prod" ItemsSource="{Binding products}" Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" Grid.RowSpan="7" SelectionChanged="prod_SelectionChanged">
+        <ComboBox Name="cb_unit" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="90" SelectionChanged="cb_unit_SelectionChanged" Margin="0,7,0,0"/>
+        <ComboBox Name="cb_alf" HorizontalAlignment="Center" VerticalAlignment="Top" Width="150" SelectionChanged="cb_unit_SelectionChanged" Grid.Column="1" Margin="0,7,0,0" Grid.Row="1">
+            <ComboBoxItem Content="Сбросить"></ComboBoxItem>
+            <ComboBoxItem Content="от А до Я"></ComboBoxItem>
+            <ComboBoxItem Content="от Я до А"></ComboBoxItem>
+        </ComboBox>
+        <ComboBox Name="cb_date" Grid.Column="2" Grid.Row="1" Width="200" HorizontalAlignment="Center" VerticalAlignment="Top" SelectionChanged="cb_unit_SelectionChanged" Margin="0,7,0,0">
+            <ComboBoxItem Content="Сбросить"/>
+            <ComboBoxItem Content="От старых к новым"/>
+            <ComboBoxItem Content="От новых к старым"/>
+        </ComboBox>
+        <CheckBox Name="cb_mounth" Content="В этом месяце" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Right" Click="cb_mounth_Click" Margin="0,7,10,49" Grid.RowSpan="2"/>
+
+        <ListView x:Name="prod" ItemsSource="{Binding products}" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="6"  Margin="0,56,0,0" RenderTransformOrigin="0.498,0.57" Grid.Row="1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="№" DisplayMemberBinding="{Binding Id}"/>
@@ -54,8 +67,11 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
-        <TextBox x:Name="tb_search" Grid.Row="0" Grid.Column="3" Height="30" VerticalAlignment="Top" SelectionChanged="tb_search_SelectionChanged" />
+
+        <TextBox x:Name="tb_search" Grid.Column="1" Height="30" VerticalAlignment="Center" SelectionChanged="tb_search_SelectionChanged" Grid.ColumnSpan="2" Margin="100,0,100,0" />
+        <Button x:Name="ChangeBtn" Grid.Column="1" Content="Изменить" HorizontalAlignment="Center" Margin="0,28,0,0" Grid.Row="7" VerticalAlignment="Top" Click="ChangeBtn_Click"/>
+        <Button x:Name="AddBtn" Content="Добавить" HorizontalAlignment="Center" Margin="0,30,0,0" Grid.Row="7" VerticalAlignment="Top" Click="AddBtn_Click" />
+        <Button x:Name="DelBtn" Content="Удалить" HorizontalAlignment="Center" Margin="0,30,0,0" Grid.Row="7" VerticalAlignment="Top"  Grid.Column="2" Click="DelBtn_Click" />
 
     </Grid>
 </Page>
