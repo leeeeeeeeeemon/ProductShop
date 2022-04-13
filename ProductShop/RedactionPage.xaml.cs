@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +23,7 @@ namespace ProductShop
     /// </summary>
     public partial class RedactionPage : Page
     {
-        Product contProduct;
+        public Product contProduct { get; set; }
         public RedactionPage(Product n)
         {
            
@@ -32,6 +34,7 @@ namespace ProductShop
                 tb_id.Text = n.Id.ToString();
                 tb_name.Text = n.Name;
                 tb_description.Text = n.Description;
+                //ImgProduct.Source = new BitmapImage(new Uri(contProduct.Photo));
 
                 if (n.UnitId == 1)
                 {
@@ -53,7 +56,7 @@ namespace ProductShop
             CountryCb.DisplayMemberPath = "Name";
             UpdateCountry();
 
-
+            this.DataContext = contProduct;
         }
 
         private void btn_back_Click(object sender, RoutedEventArgs e)
@@ -108,6 +111,19 @@ namespace ProductShop
         public void UpdateCountry()
         {
             CountryLv.ItemsSource = bd_connection.connection.ProductCountry.Where(a => a.ProductId == contProduct.Id).ToList();
+        }
+
+        private void btn_newphoto_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog()
+            {
+                Filter = "*.jpg|*.jpg|*.png|*.png"
+            };
+            if (openFile.ShowDialog().GetValueOrDefault())
+            {
+                contProduct.Photo = File.ReadAllBytes(openFile.FileName);
+                ImgProduct.Source = new BitmapImage(new Uri(openFile.FileName));
+            }
         }
     }
 }

@@ -58,8 +58,8 @@
             <Button Visibility="Visible" Margin="2" x:Name="DelCountryBtn" Content="Удалить страну" Click="DelCountryBtn_Click" ></Button>
         </StackPanel>
 
-        <Image Source="{Binding Product.Photo}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5" Margin="15"/>
-        <Button x:Name="btn_newphoto" Content="Изменить фото" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="6" HorizontalAlignment="Center" Width="200"/>
+        <Image x:Name="ImgProduct" Source="{Binding Photo}" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="5" Margin="15"/>
+        <Button x:Name="btn_newphoto" Content="Изменить фото" Grid.Column="2" Grid.ColumnSpan="3" Grid.Row="6" HorizontalAlignment="Center" Width="200" Click="btn_newphoto_Click"/>
 
     </Grid>
 </Page>

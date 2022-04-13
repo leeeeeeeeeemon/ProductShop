@@ -136,8 +136,13 @@ namespace ProductShop
             {
                 var n = prod.SelectedItem as Product;
 
-                n.IsDeleted = true;
+                DeleteWindow del = new DeleteWindow();
 
+                if (del.ShowDialog() == true)
+                {
+                    n.IsDeleted = true;
+                    bd_connection.connection.SaveChanges();
+                }
                 Filter();
             }
             else
