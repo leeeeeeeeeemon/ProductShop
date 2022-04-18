@@ -21,11 +21,18 @@ namespace ProductShop
     /// </summary>
     public partial class AutorizationPage : Page
     {
+        public static int pass_count = 0;
         public static ObservableCollection<User> users { get; set; }
         public AutorizationPage()
         {
             InitializeComponent();
             tb_login.Text = Properties.Settings.Default.Login;
+
+            tb_password.Visibility = Visibility.Hidden;
+            if (Properties.Settings.Default.Password < DateTime.Now)
+            {
+                tb_password.Visibility = Visibility.Visible;
+            }
         }
 
         private void btn_reg_Click(object sender, RoutedEventArgs e)
@@ -49,11 +56,30 @@ namespace ProductShop
                     Properties.Settings.Default.Login = null;
                     Properties.Settings.Default.Save();
                 }
+                pass_count = 0;
                 NavigationService.Navigate(new ListPage(usr));
             }
             else
             {
-                MessageBox.Show("Неверный логин или пароль", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                
+                
+                if (pass_count == 3)
+                {
+                    pass_count = 0;
+                    Properties.Settings.Default.Password = DateTime.Now.AddMinutes(1);
+                    Properties.Settings.Default.Save();
+                    tb_password.Visibility = Visibility.Hidden;
+                }
+                if (Properties.Settings.Default.Password > DateTime.Now)
+                {
+                    MessageBox.Show($"Слишком много попыток ввода, вход заморожен осталось: {Properties.Settings.Default.Password - DateTime.Now}", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Неверный логин или пароль", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    pass_count++;
+                }
             }
         }
     }

@@ -24,6 +24,7 @@ namespace ProductShop
         public static ObservableCollection<Product> products { get; set; }
 
         public static User thisUser;
+        public static int actualPage;
         public ListPage(User usr)
         {
             products = new ObservableCollection<Product>(bd_connection.connection.Product.ToList());
@@ -93,6 +94,30 @@ namespace ProductShop
                 filterProd = filterProd.Where(c => c.AddDate.Month == date);
             }
 
+            int allCount = filterProd.Count();
+
+            if (cb_count.SelectedIndex > 0 && filterProd.Count() > 0)
+            {
+                var cbb = cb_count.SelectedItem as ComboBoxItem;
+                int SelCount = Convert.ToInt32(cbb.Content);
+                filterProd = filterProd.Skip(SelCount * actualPage).Take(SelCount);
+                string count = (SelCount * (actualPage + 1)) + " из " + allCount;
+                tb_count.Text = count;
+
+                if (filterProd.Count() == 0)
+                {
+                    count = allCount + " из " + allCount;
+                    tb_count.Text = count;
+                    actualPage--;
+                    return;
+                }
+                else if (SelCount * (actualPage + 1) > allCount)
+                {
+                    count = allCount + " из " + allCount;
+                    tb_count.Text = count;
+                }
+            }
+
             prod.ItemsSource = filterProd;
         }
 
@@ -127,7 +152,7 @@ namespace ProductShop
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddPage());
         }
 
         private void DelBtn_Click(object sender, RoutedEventArgs e)
@@ -149,6 +174,29 @@ namespace ProductShop
             {
                 MessageBox.Show("Выберете продукт");
             }
+        }
+
+        private void cb_count_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            actualPage = 0;
+            
+            Filter();
+        }
+
+        private void btn_back_list_Click(object sender, RoutedEventArgs e)
+        {
+            actualPage--;
+            if (actualPage < 0)
+            {
+                actualPage = 0;
+            }
+            Filter();
+        }
+
+        private void btn_next_Click(object sender, RoutedEventArgs e)
+        {
+            actualPage++;
+            Filter();
         }
     }
 }

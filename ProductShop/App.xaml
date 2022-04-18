@@ -8,6 +8,25 @@
             <Setter Property="FontFamily" Value="Arial"/>
             <Setter Property="Foreground" Value="#AD7261"/>
             <Setter Property="FontSize" Value="25"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            
+            
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="BorderThickness" Value="0 0 0 2"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="BorderBrush" Value="#AD7261"></Setter>
+            <Setter Property="Background" Value="#FFCFC2"></Setter>
+            <Setter Property="Foreground" Value="#FF553026"></Setter>
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="BorderThickness" Value="0 0 0 2"></Setter>
+            <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+            <Setter Property="BorderBrush" Value="#AD7261"></Setter>
+            <Setter Property="Background" Value="#FFCFC2"></Setter>
+            <Setter Property="Foreground" Value="#FF553026"></Setter>
         </Style>
         <Style TargetType="Grid" >
             <Setter Property="Background" Value="#FFCFC2"/>
@@ -16,9 +35,37 @@
             <Setter Property="Foreground" Value="#FF553026"/>
             <Setter Property="Background" Value="#FAB7A4"/>
             <Setter Property="BorderBrush" Value="#AD7261"/>
+            <Setter Property="Height" Value="50"></Setter>
+            <Setter Property="Width" Value="300"></Setter>
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="20"
+                                Background="{TemplateBinding Background}">
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FFE6714F"></Setter>
+                </Trigger>
+            </Style.Triggers>
+            
         </Style>
         <Style TargetType="ListView">
             <Setter Property="Background" Value="#FAB7A4"/>
+            
         </Style>
+        
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontFamily" Value="Segoe UI" />
+            <Setter Property="FontSize" Value="25" />
+        </Style>
+        
     </Application.Resources>
 </Application>
