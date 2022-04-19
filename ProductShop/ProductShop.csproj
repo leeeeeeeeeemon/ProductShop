@@ -67,6 +67,9 @@
     <Compile Include="AddPage.xaml.cs">
       <DependentUpon>AddPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdmissionPage.xaml.cs">
+      <DependentUpon>AdmissionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -75,82 +78,93 @@
       <DependentUpon>AutorizationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="bd_connection.cs" />
-    <Compile Include="Client.cs">
+    <Compile Include="BD\Client.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Country.cs">
+    <Compile Include="BD\Country.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
     <Compile Include="DeleteWindow.xaml.cs">
       <DependentUpon>DeleteWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Gender.cs">
+    <Compile Include="BD\Gender.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IntakePage.xaml.cs">
+      <DependentUpon>IntakePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListPage.xaml.cs">
       <DependentUpon>ListPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ModelShop.Context.cs">
+    <Compile Include="BD\ModelShop.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelShop.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelShop.cs">
+    <Compile Include="BD\ModelShop.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="ModelShop.Designer.cs">
+    <Compile Include="BD\ModelShop.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelShop.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Order.cs">
+    <Compile Include="BD\Order.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs">
+    <Compile Include="BD\Product.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProductCountry.cs">
+    <Compile Include="BD\ProductCountry.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProductIntake.cs">
+    <Compile Include="BD\ProductIntake.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProductIntakeProduct.cs">
+    <Compile Include="BD\ProductIntakeProduct.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="ProductOrder.cs">
+    <Compile Include="BD\ProductOrder.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
+    <Compile Include="OrderPage.xaml.cs">
+      <DependentUpon>OrderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersPage.xaml.cs">
+      <DependentUpon>OrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProductIntakeProduct.cs" />
+    <Compile Include="ProductOrder.cs" />
     <Compile Include="RedactionPage.xaml.cs">
       <DependentUpon>RedactionPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistrationPage.xaml.cs">
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Role.cs">
+    <Compile Include="BD\Role.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
     <Compile Include="ShowWindow.xaml.cs">
       <DependentUpon>ShowWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="StatusIntake.cs">
+    <Compile Include="BD\StatusIntake.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="StatusOrder.cs">
+    <Compile Include="BD\StatusOrder.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Supplier.cs">
+    <Compile Include="BD\Supplier.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Unit.cs">
+    <Compile Include="BD\Unit.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="User.cs">
+    <Compile Include="BD\User.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
-    <Compile Include="Worker.cs">
+    <Compile Include="BD\Worker.cs">
       <DependentUpon>ModelShop.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -172,11 +186,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="ModelShop.edmx">
+    <EntityDeploy Include="BD\ModelShop.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelShop.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ModelShop.edmx.diagram">
+    <None Include="BD\ModelShop.edmx.diagram">
       <DependentUpon>ModelShop.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -193,6 +207,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AdmissionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AutorizationPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,7 +219,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="IntakePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrdersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -223,12 +253,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\logo.png" />
-    <Content Include="ModelShop.Context.tt">
+    <Content Include="BD\ModelShop.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelShop.edmx</DependentUpon>
       <LastGenOutput>ModelShop.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="ModelShop.tt">
+    <Content Include="BD\ModelShop.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelShop.edmx</DependentUpon>
       <LastGenOutput>ModelShop.cs</LastGenOutput>

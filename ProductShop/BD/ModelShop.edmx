@@ -53,6 +53,7 @@
           <Property Name="UnitId" Type="int" Nullable="false" />
           <Property Name="AddDate" Type="date" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Price" Type="money" />
         </EntityType>
         <EntityType Name="ProductCountry">
           <Key>
@@ -500,6 +501,7 @@
           <NavigationProperty Name="ProductIntakeProduct" Relationship="Self.FK_ProductIntakeProduct_Product" FromRole="Product" ToRole="ProductIntakeProduct" />
           <NavigationProperty Name="ProductOrder" Relationship="Self.FK_ProductOrder_Product" FromRole="Product" ToRole="ProductOrder" />
           <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
         </EntityType>
         <EntityType Name="ProductCountry">
           <Key>
@@ -949,6 +951,7 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="ShopModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Price" ColumnName="Price" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />

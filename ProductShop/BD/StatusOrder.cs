@@ -7,26 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProductShop
+namespace ProductShop.BD
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class ProductIntake
+    public partial class StatusOrder
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ProductIntake()
+        public StatusOrder()
         {
-            this.ProductIntakeProduct = new HashSet<ProductIntakeProduct>();
+            this.Order = new HashSet<Order>();
         }
     
         public int Id { get; set; }
-        public int SupplierId { get; set; }
-        public decimal TotalAmount { get; set; }
-        public System.DateTime Data { get; set; }
+        public string Name { get; set; }
     
-        public virtual Supplier Supplier { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ProductIntakeProduct> ProductIntakeProduct { get; set; }
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

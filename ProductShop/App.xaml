@@ -19,6 +19,7 @@
             <Setter Property="BorderBrush" Value="#AD7261"></Setter>
             <Setter Property="Background" Value="#FFCFC2"></Setter>
             <Setter Property="Foreground" Value="#FF553026"></Setter>
+            <Setter Property="FontSize" Value="36"/>
         </Style>
         <Style TargetType="PasswordBox">
             <Setter Property="BorderThickness" Value="0 0 0 2"></Setter>

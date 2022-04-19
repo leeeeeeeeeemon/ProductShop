@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Collections.ObjectModel;
-
+using ProductShop.BD;
 namespace ProductShop
 {
     /// <summary>

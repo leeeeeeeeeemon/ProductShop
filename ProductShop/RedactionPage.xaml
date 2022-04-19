@@ -39,7 +39,7 @@
         <TextBox x:Name="tb_name" Grid.Column="1" Grid.Row="2"/>
         <TextBox x:Name="tb_description" Grid.Column="1" Grid.Row="3"/>
 
-        <StackPanel x:Name="sp_unit" Grid.Column="1" Grid.Row="4" Margin="5">
+        <StackPanel x:Name="sp_unit" Grid.Column="1" Grid.Row="4" Margin="0,34,10,32" RenderTransformOrigin="0.497,1.47" Grid.RowSpan="2">
             <RadioButton x:Name="rb_kg" GroupName="unit" Content="кг"/>
             <RadioButton x:Name="rb_st" GroupName="unit" Content="шт"/>
             <RadioButton x:Name="rb_l" GroupName="unit" Content="л"/>
